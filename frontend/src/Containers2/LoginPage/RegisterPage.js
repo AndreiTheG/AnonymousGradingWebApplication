@@ -9,7 +9,7 @@ class RegisterPage extends Component{
     handleRegister=(e)=>{
     e.preventDefault()
     const data={
-            fullname:this.fullName,
+            fullName:this.fullName,
             email:this.email,
             password:this.password,
             year:this.studyYear,
@@ -28,7 +28,7 @@ class RegisterPage extends Component{
 
    render(){ 
     if(this.state.registered){
-       return <Navigate to='/home'/>
+       return <Navigate to='/start/main-page'/>
     }
 
     return(
@@ -63,6 +63,7 @@ class RegisterPage extends Component{
                           <input type="text"
                           className={classes.inputReg}
                           placeholder="Name"
+                          required="required"
                           onChange={e=>this.fullName=e.target.value}
                           ></input>
                       </div>
@@ -70,6 +71,7 @@ class RegisterPage extends Component{
                         <input type="text"
                         className={classes.inputReg}
                         placeholder="Email"
+                        required="required"
                         onChange={e=>this.email=e.target.value}
                         ></input>
                       </div>
@@ -77,6 +79,7 @@ class RegisterPage extends Component{
                         <input type="password"
                         className={classes.inputReg}
                         placeholder="Password"
+                        required="required"
                         onChange={e=>this.password=e.target.value}
                         ></input>
                       </div>
@@ -84,21 +87,23 @@ class RegisterPage extends Component{
                         <input type="text"
                         className={classes.inputReg}
                         placeholder="Group Number"
+                        required="required"
                         onChange={e=>this.groupNr=e.target.value}
                         ></input>
                       </div>
                       <div className={classes.DrGri}>
-                        <input type="text"
+                        <input type="number"
                         className={classes.inputReg}
                         placeholder="Study Year"
+                        required="required"
                         onChange={e=>this.studyYear=e.target.value}
                         ></input>
                       </div>
                       <div  className={classes.DrGri}>
-                        <input type="radio" id="student" name="contact" value="student" />
+                        <input type="radio" id="student" name="contact" value="student"  onChange={e=>this.role=e.target.value} />
                         <label htmlFor="student">Student</label>
 
-                        <input type="radio" id="professor" name="contact" value="professor" />
+                        <input type="radio" id="professor" name="contact" value="professor" onChange={e=>this.role=e.target.value} />
                         <label htmlFor="professor">Professor</label>
                        </div> 
                        <Link to="/start/main-page">
