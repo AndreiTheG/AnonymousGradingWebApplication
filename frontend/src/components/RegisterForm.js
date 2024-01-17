@@ -1,28 +1,128 @@
-// Register.js
-import React, { useState } from 'react';
-import axios from 'axios';
+import React,{Component} from 'react';
+import { Link, Navigate } from 'react-router-dom';
+import classes from './RegisterForm.css';
+import axios from 'axios'
 
-const Register = ({ onRegister }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+class RegisterForm extends Component{
+  state={}
+  handleRegister=(e)=>{
+  e.preventDefault()
+  const data={
+          fullname:this.fullName,
+          email:this.email,
+          password:this.password,
+          year:this.studyYear,
+          group:this.groupNr,
+          role:this.role
+      }
+      axios.post('http://localhost:3001/api/v1/auth/register',data).then(res=>{
+          this.setState({registered:true})
+          localStorage.setItem('token',res.data.token)
+      }).catch(err=>{
+          console.log(err);
+      })
+  }
 
-  const handleRegister = async () => {
-    try {
-      const response = await axios.post('/api/register', { username, password });
-      onRegister(response.data);
-    } catch (error) {
-      console.error('Eroare la înregistrare:', error);
-    }
-  };
 
-  return (
-    <div>
-      <h2>Înregistrare</h2>
-      <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-      <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <button onClick={handleRegister}>Înregistrare</button>
-    </div>
+
+ render(){ 
+  if(this.state.registered){
+     return <Navigate to='/home'/>
+  }
+
+  return(
+     
+      <div className={classes.Login}>
+      <div className={classes.All}>
+          <div id="Partea Dreapta" className={classes.Dreapta}>
+                      <p className={classes.Welcome}>Welcome Back!</p>
+                      <p className={classes.DescDreapta}>To keep connected with us please login with your personal info</p>
+                    
+                      <Link to="/">
+                          <button className={classes.ButonDreapta}>
+                              SIGN IN
+                          </button>
+                      </Link>
+                  </div>
+         
+         <div className={classes.Stanga}>
+                   <div id="Partea Stanga" className={classes.St}>
+                    
+                          <br></br>
+                          <div className={classes.Cercuri}>
+                          <p>Create Account </p>
+                            
+                      </div>
+                     
+                      
+                      <br></br>
+                      <p className={classes.para}>Use your email for registration:</p>
+                      
+                      <div className={classes.DrGri}>
+                          <input type="text"
+                          className={classes.inputReg}
+                          placeholder="Name"
+                          onChange={e=>this.fullName=e.target.value}
+                          ></input>
+                      </div>
+                      <div className={classes.DrGri}>
+                        <input type="text"
+                        className={classes.inputReg}
+                        placeholder="Email"
+                        onChange={e=>this.email=e.target.value}
+                        ></input>
+                      </div>
+                      <div className={classes.DrGri}>
+                        <input type="password"
+                        className={classes.inputReg}
+                        placeholder="Password"
+                        onChange={e=>this.password=e.target.value}
+                        ></input>
+                      </div>
+                      <div className={classes.DrGri}>
+                        <input type="text"
+                        className={classes.inputReg}
+                        placeholder="Group Number"
+                        onChange={e=>this.groupNr=e.target.value}
+                        ></input>
+                      </div>
+                      <div className={classes.DrGri}>
+                        <input type="text"
+                        className={classes.inputReg}
+                        placeholder="Study Year"
+                        onChange={e=>this.studyYear=e.target.value}
+                        ></input>
+                      </div>
+                      <div  className={classes.DrGri}>
+                        <input type="radio" id="student" name="contact" value="student" />
+                        <label htmlFor="student">Student</label>
+
+                        <input type="radio" id="professor" name="contact" value="professor" />
+                        <label htmlFor="professor">Professor</label>
+                       </div> 
+
+    {/* <!--   <input type="radio" id="contactChoice3" name="contact" value="mail" />
+      <label for="contactChoice3">Mail</label> -->
+    </div> */}
+                      {/* <div className={classes.DrGri}>
+                        <input type="text"
+                        className={classes.inputReg}
+                        placeholder="Role"
+                        onChange={e=>this.role=e.target.value}
+                        ></input>
+                      </div> */}
+                      </div>
+                      <button 
+                      className={classes.ButonSignUp}
+                      onClick={this.handleRegister}>
+                          SIGN UP
+                   </button>
+                  
+
+                  </div>
+          </div>
+          </div>
   );
+  }
 };
-
-export default Register;
+export default RegisterForm;

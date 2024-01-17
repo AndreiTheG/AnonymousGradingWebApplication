@@ -10,7 +10,7 @@ const ProiectForm = ({ onProiectAdaugat }) => {
         const formData = new FormData();
         formData.append('numeProiect', numeProiect);
         formData.append('videoclip', video);
-      const response = await axios.post('http://localhost:3001/adauga-proiect', { numeProiect });
+      const response = await axios.post('http://localhost:3001/proiectForm', { numeProiect });
       onProiectAdaugat(response.data);
       setNumeProiect('');
       setVideo(null);
