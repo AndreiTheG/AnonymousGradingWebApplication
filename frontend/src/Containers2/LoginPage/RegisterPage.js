@@ -101,11 +101,13 @@ class RegisterPage extends Component{
                         <input type="radio" id="professor" name="contact" value="professor" />
                         <label htmlFor="professor">Professor</label>
                        </div> 
+                       <Link to="/start/main-page">
                         <button 
                         className={classes.ButonSignUp}
                         onClick={this.handleRegister}>
                             SIGN UP
                      </button>
+                     </Link>
                     
 
                     </div>
