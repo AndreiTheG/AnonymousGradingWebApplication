@@ -33,7 +33,7 @@ class App extends Component {
     axios.get(`${SERVER}/api/me`).then(res => {
       this.setUser(res.data);
     }).catch(err => { console.log(err); });
-    axios.get(`${SERVER}/api/v1/projects`).then(res => {
+    axios.get(`${SERVER}/api/projects`).then(res => {
       this.setState({
         projects: res.data
       });
