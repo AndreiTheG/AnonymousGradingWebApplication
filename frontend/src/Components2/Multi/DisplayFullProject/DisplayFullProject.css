@@ -1,0 +1,22 @@
+.DisplayFullProject {
+    box-sizing: border-box;
+    font-size: medium;
+    background-color: #FEFFFF;
+    border-radius: 30px;
+    padding: 35px;  
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    overflow: auto;
+}
+
+.DisplayFullProject h2 {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+.DisplayFullProject iframe {
+    margin: auto;
+}
