@@ -6,7 +6,7 @@ dotenv.config({path : './cfg.env'});
 
 
 
-await sequelize.query('DELETE FROM `Users_backup`;');
+// await sequelize.query('DELETE FROM `Users_backup`;');
 // Define User model
 const User = sequelize.define('User', {
   userId: {
