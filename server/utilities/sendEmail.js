@@ -24,6 +24,7 @@ const sendEmail = async (options) => {
 
   export { sendEmail };
 
+<<<<<<< HEAD
 // import nodemailer from 'nodemailer'
 
 // const sendEmail = async (options) => {
@@ -49,3 +50,7 @@ const sendEmail = async (options) => {
 //   };
 
 //   export { sendEmail };
+=======
+
+//2323
+>>>>>>> a77c2c09bac92195b4085c1d5e5364fbf2061f6f
