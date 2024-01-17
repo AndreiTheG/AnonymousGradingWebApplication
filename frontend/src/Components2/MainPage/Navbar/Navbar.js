@@ -7,7 +7,7 @@ import Axios from 'axios';
 
 const navbar = (props) => {
     const logOut = () => {
-        Axios.get('http://localhost:3001/api/v1/auth/logout').then(res => {
+        Axios.get('http://localhost:5001/api/v1/auth/logout').then(res => {
             console.log(res);
             window.localStorage.removeItem("token");
         }).catch(err => { console.log(err); });
@@ -19,7 +19,7 @@ const navbar = (props) => {
             <p style={{ marginLeft: "2%" }}><Link to="/home/profile/project" style={{ marginLeft: "40px" }}>Profile</Link></p>
             <Link to="/home/project" style={{ marginLeft: "40px" }}>Project</Link>
             <Link to="/home/review/review-projects" style={{ marginLeft: "40px" }}>Review</Link>
-            <Link to="/start/login" onClick={logOut} style={{ marginLeft: "auto", marginRight: "30px" }}>Log Out</Link>
+            <Link to="/" onClick={logOut} style={{ marginLeft: "20px", marginRight: "30px" }}>Log Out</Link>
         </nav>
     );
 }
