@@ -32,10 +32,6 @@ class ReviewProjects extends Component {
                 {console.log(projects)}
                 {items}  
             </div>
-
-
-
-
         )
 
     }
