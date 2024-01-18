@@ -72,7 +72,7 @@ class ReviewTheProject extends Component {
     }
 
     render() {
-            if(this.props.user.data.role==="reviewer"){   
+            if(this.props.user.data.role==="student"){   
         return (
             <div >
                 <br></br>
