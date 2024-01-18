@@ -7,15 +7,15 @@ import axios from 'axios'
 class RegisterPage extends Component{
     state={}
     handleRegister=(e)=>{
-    e.preventDefault()
-    const data={
+      e.preventDefault()
+      const data={
             fullName:this.fullName,
             email:this.email,
             password:this.password,
             year:this.studyYear,
             group:this.groupNr, 
             role:this.role
-        }
+      }
         axios.post('http://localhost:5001/api/register',data).then(res=>{
             this.setState({registered:true})
             localStorage.setItem('token',res.data.token)

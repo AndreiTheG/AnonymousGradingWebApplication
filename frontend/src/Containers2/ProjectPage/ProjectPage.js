@@ -11,12 +11,12 @@ class ProjectPage extends Component {
     state = {
         projectData: {
             projectName: '',
-            shortDescription: '',
+            author: '',
             fullDescription: '',
-            ytLink: '',
-            ghLink: '',
-            images: '',
-            projectId: ''
+            videoLink: ''
+            // ghLink: '',
+            // images: '',
+            // projectId: ''
         }
     }
     _isMounted = false;

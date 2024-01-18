@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
-import DisplayImages from '../../Multi/DisplayImages/DisplayImages'
+// import DisplayImages from '../../Multi/DisplayImages/DisplayImages'
 import DisplayFullProject from '../../../Components2/Multi/DisplayFullProject/DisplayFullProject';
 import classes from './SubPageProject.css';
 import subPageClasses from '../SubPage/SubPage.css';
@@ -13,10 +13,31 @@ class ProjectPage extends Component {
         projectName: '',
         author: '',
         fullDescription: '',
-        youTubeLink: '',
-        gitHubLink: '',
-        fileInput: React.createRef()
+        videoLink: '',
+        // gitHubLink: '',
+        // fileInput: React.createRef()
     };
+
+    handleProjectCreate=(e)=>{
+        e.preventDefault()
+        const data={
+              projectName:this.state.projectName,
+              author:this.state.author,
+              fullDescription:this.state.fullDescription,
+              videoLink:this.state.videoLink
+        }
+        if(!data.projectName || !data.author || !data.fullDescription || !data.videoLink){
+            alert("The project needs to have a title, short description, full description and a project link");
+            return;
+        }
+        axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
+        
+          axios.post('http://localhost:5001/api/project',data).then(res=>{
+              this.setState({projectId:res.data.id})
+          }).catch(err=>{
+              console.log(err);
+          })
+      }
 
     projectData = {};
 
@@ -30,51 +51,51 @@ class ProjectPage extends Component {
         this.setState({ projectName: event.target.value });
     }
 
-    handleShortDescriptionChange = (event) => {
-        this.setState({ shortDescription: event.target.value });
+    handleAuthorName = (event) => {
+        this.setState({ author: event.target.value });
     }
 
     handleFullDescriptionChange = (event) => {
         this.setState({ fullDescription: event.target.value });
     }
 
-    handleImagesChange = (event) => {
-        event.preventDefault();
+    // handleImagesChange = (event) => {
+    //     event.preventDefault();
 
-        let reader = new FileReader();
-        let file = this.state.fileInput.current.files[0]
+    //     let reader = new FileReader();
+    //     let file = this.state.fileInput.current.files[0]
 
-        reader.onloadend = () => {
-            this.setState({
-                file: file,
-                imagePreviewUrl: reader.result
-            });
-        }
+    //     reader.onloadend = () => {
+    //         this.setState({
+    //             file: file,
+    //             imagePreviewUrl: reader.result
+    //         });
+    //     }
 
-        reader.readAsDataURL(file)
-    }
+    //     reader.readAsDataURL(file)
+    // }
 
     handleYouTubeLinkChange = (event) => {
-        this.setState({ youTubeLink: event.target.value });
+        this.setState({ videoLink: event.target.value });
     }
 
-    handleGitHubLinkChange = (event) => {
-        this.setState({ gitHubLink: event.target.value });
-    }
+    // handleGitHubLinkChange = (event) => {
+    //     this.setState({ gitHubLink: event.target.value });
+    // }
 
     handleSubmit = (event) => {
         event.preventDefault();
         this.projectData = {
-            video: this.state.youTubeLink,
-            upload: this.state.gitHubLink,
+            video: this.state.videoLink,
+            // upload: this.state.gitHubLink,
             title: this.state.projectName,
-            author: this.props.user.data.fullname,
-            description: this.state.shortDescription,
+            author: this.props.user.data.fullName,
+            // description: this.state.shortDescription,
             body: this.state.fullDescription,
-            images: this.state.imagePreviewUrl
+            // images: this.state.imagePreviewUrl
         }
 
-        if(!this.projectData.title || !this.projectData.body || !this.projectData.description || !this.projectData.upload){
+        if(!this.projectData.title || !this.projectData.body || !this.projectData.title || !this.projectData.videoLink){
             alert("The project needs to have a title, short description, full description and a project link");
             return;
         }
@@ -120,13 +141,18 @@ class ProjectPage extends Component {
     }
 
     render() {
+        if(this.state.projectId){
+            return <Navigate to={  '/start/full-page/' + this.state.projectId }/>
+        }
+
+
         if (this.props.projectData.projectName !== '') {
             this.title = "Edit Your Project";
             this.projectDisplay = <DisplayFullProject projectData={this.props.projectData} />;
             this.deleteDisplay = <button className={classes.DeleteButton} onClick={this.props.handleDelete}>DELETE PROJECT</button>
         }
 
-        this.imagesDisplay = this.state.fileInput.current !== null ? <DisplayImages images={this.state.imagePreviewUrl} /> : "Select some images";
+        // this.imagesDisplay = this.state.fileInput.current !== null ? <DisplayImages images={this.state.imagePreviewUrl} /> : "Select some images";
 
         return (
             <div className={subPageClasses.SubPage}>
@@ -137,34 +163,36 @@ class ProjectPage extends Component {
                 <div className={classes.SubPageProject}>
                     <h1>{this.title}</h1>
                     <form onSubmit={this.handleSubmit}>
-                        <label>
-                            <p>Enter Project Name</p>
-                            <input type='text' maxLength='30' value={this.state.projectName} onChange={this.handleProjectNameChange} />
-                        </label>
-                        <label>
-                            <p>Enter a Short Description</p>
-                            <textarea type='text' maxLength='250' value={this.state.shortDescription} onChange={this.handleShortDescriptionChange} />
-                        </label>
-                        <label>
-                            <p>Enter the Full Description of Your Project</p>
-                            <textarea type='text' maxLength='6000' value={this.state.fullDescription} onChange={this.handleFullDescriptionChange} style={{ height: '600px' }} />
-                        </label>
+                        <div>
+                            <label htmlFor="ProjectName">Enter Project Name</label>
+                            <input id="ProjectName" type='text' maxLength='30' value={this.state.projectName} onChange={this.handleProjectNameChange} />
+                        </div>
+                        <div>
+                            <label htmlFor="Author">Enter Author Name</label>
+                            <input id="Author" type='text' maxLength='250' value={this.state.author} onChange={this.handleAuthorName} />
+                        </div>
+                        <div>
+                            <label htmlFor="FullDescription">Enter the Full Description of Your Project</label>
+                            <textarea id="FullDescription" type='text' maxLength='6000' value={this.state.fullDescription} onChange={this.handleFullDescriptionChange} style={{ height: '200px' }} />
+                        </div>
                         {/* <label>
                             <p>Add a Descriptive Image</p>
                             {this.imagesDisplay}
                             <input type='file' accept="image/png, image/jpeg" ref={this.state.fileInput} onChange={this.handleImagesChange} />
                         </label> */}
-                        <label>
-                            <p>Link a YouTube With A Demo of the Project</p>
-                            <input type='text' maxLength='50' value={this.state.youTubeLink} onChange={this.handleYouTubeLinkChange} />
-                        </label>
+                        <div>
+                            <label htmlFor="VideoLink">Link a YouTube With A Demo of the Project</label>
+                            <input id="VideoLink" type='text' maxLength='50' value={this.state.youTubeLink} onChange={this.handleYouTubeLinkChange} />
+                        </div>
                         {/* <label>
                             <p>Add the GitHub Repo Containing Your Project</p>
                             <input type='text' maxLength='50' value={this.state.gitHubLink} onChange={this.handleGitHubLinkChange} />
                         </label> */}
-                        <Link to="/start/full-page">
-                            <button type='submit'>SUBMIT</button>
-                        </Link>
+                        {/* <Link to="/start/full-page"> */}
+                        <div>
+                            <button  onClick={this.handleProjectCreate} type='submit'>SUBMIT</button>
+                        </div>
+                        {/* </Link> */}
                     </form>
                 </div>
             </div>

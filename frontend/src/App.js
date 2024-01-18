@@ -11,6 +11,7 @@ import axios from 'axios';
 import DisplayFullProject from './Components2/Multi/DisplayFullProject/DisplayFullProject';
 import Navbar from './Components2/MainPage/Navbar/Navbar'; // Adaugă importul pentru Navbar
 import ProfilePage from './Containers2/ProfilePage/ProfilePage';
+// import MainPage from './Containers2/MainPage/MainPage';
 import Review from './Containers2/ReviewPage/Reviews';
 import ReviewProjects from './Containers2/ReviewPage/ReviewProjects'
 
@@ -58,6 +59,7 @@ class App extends Component {
             <Route path="/start/register" element={<RegisterPage />} />
             <Route path='/start' element={<Background />} />
             <Route path="/start/main-page" element={<Navbar />} />
+            {/* <Route path="/start/main-page" element={<MainPage />} /> */}
             <Route path="/home/project" element={<ProjectPage />} />
             <Route path="/home/profile/project" element={<ProfilePage />} />
             <Route path="/home/review/review-projects" element={<ReviewProjects />} />
