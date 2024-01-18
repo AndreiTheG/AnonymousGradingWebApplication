@@ -5,8 +5,6 @@ import axios from 'axios'
 import DisplayFullProject from '../../Components/Multi/DisplayFullProject/DisplayFullProject'
 import classesDisplay from '../../Components/Multi/DisplayFullProject/DisplayFullProject.css'
 
-
-
 class ReviewTheProject extends Component {
     state = {
         grade: undefined,
