@@ -13,13 +13,11 @@ const protect = async (req, res, next) => {
 
       if (req.headers.authorization ){
         token = req.headers.authorization;
-        console.log('boss');
     } else if (req.cookies.token) {
         token = req.cookies.token;
     }
      
       
-      console.log(token);//<---------------------
       //console.log(process.env.JWT_SECRET);
   
       if (!token) {
@@ -28,8 +26,7 @@ const protect = async (req, res, next) => {
   
       // Verify and decode token
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      console.log(decoded);//<------------------------
-      console.log(decoded.id);
+      console.log('userId: ', decoded.id);
       //console.log(decoded.userId);
 
 
@@ -48,6 +45,7 @@ const protect = async (req, res, next) => {
   
       next();
     } catch (err) {
+      console.log('Error authentification: ', err)
       return res.status(401).json({ success: false, message: 'Not authorized, token failed' });
     }
   };
