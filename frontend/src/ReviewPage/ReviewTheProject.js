@@ -72,7 +72,7 @@ class ReviewTheProject extends Component {
     }
 
     render() {
-            if(this.props.user.data.role==="student"){   
+        //     if(this.props.user.data.role==="student"){   
         return (
             <div >
                 <br></br>
@@ -117,20 +117,20 @@ class ReviewTheProject extends Component {
 
             </div>
         );
-    }else{
-        return(
-            <div  >
-            <br></br>
-            <br></br>
-            <br></br>
-            <div className={classesDisplay.DisplayFullProject}
+    // }else{
+    //     return(
+    //         <div  >
+    //         <br></br>
+    //         <br></br>
+    //         <br></br>
+    //         <div className={classesDisplay.DisplayFullProject}
             
-            style={{width:"120%",marginLeft:"100px",marginRight:"100px"}}>
-                <DisplayFullProject projectData={this.state.projectData} />
-            </div>
-            </div>
-        )
-    }
+    //         style={{width:"120%",marginLeft:"100px",marginRight:"100px"}}>
+    //             <DisplayFullProject projectData={this.state.projectData} />
+    //         </div>
+    //         </div>
+    //     )
+    //}
 
     }
 
