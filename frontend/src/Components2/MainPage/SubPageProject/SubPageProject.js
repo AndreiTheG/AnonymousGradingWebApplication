@@ -149,19 +149,19 @@ class ProjectPage extends Component {
                             <p>Enter the Full Description of Your Project</p>
                             <textarea type='text' maxLength='6000' value={this.state.fullDescription} onChange={this.handleFullDescriptionChange} style={{ height: '600px' }} />
                         </label>
-                        <label>
+                        {/* <label>
                             <p>Add a Descriptive Image</p>
                             {this.imagesDisplay}
                             <input type='file' accept="image/png, image/jpeg" ref={this.state.fileInput} onChange={this.handleImagesChange} />
-                        </label>
+                        </label> */}
                         <label>
                             <p>Link a YouTube With A Demo of the Project</p>
                             <input type='text' maxLength='50' value={this.state.youTubeLink} onChange={this.handleYouTubeLinkChange} />
                         </label>
-                        <label>
+                        {/* <label>
                             <p>Add the GitHub Repo Containing Your Project</p>
                             <input type='text' maxLength='50' value={this.state.gitHubLink} onChange={this.handleGitHubLinkChange} />
-                        </label>
+                        </label> */}
                         <Link to="/start/full-page">
                             <button type='submit'>SUBMIT</button>
                         </Link>
