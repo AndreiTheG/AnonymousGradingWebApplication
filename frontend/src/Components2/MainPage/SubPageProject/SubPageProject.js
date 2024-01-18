@@ -11,7 +11,7 @@ import axios from 'axios';
 class ProjectPage extends Component {
     state = {
         projectName: '',
-        shortDescription: '',
+        author: '',
         fullDescription: '',
         youTubeLink: '',
         gitHubLink: '',
