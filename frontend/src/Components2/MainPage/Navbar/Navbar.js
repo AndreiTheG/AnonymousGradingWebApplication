@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import classes from './Navbar.css';
-// import logo from '../../drawables/ProjectReviewers.png';
+import logo from '../../../logo.svg';
 
 import Axios from 'axios';
 
@@ -15,11 +15,18 @@ const navbar = (props) => {
 
     return (
         <nav className={classes.Navbar}>
-            {/* <img rel="icon" src={logo} alt="Logo"></img> */}
-            <p style={{ marginLeft: "2%" }}><Link to="/home/profile/project" style={{ marginLeft: "40px" }}>Profile</Link></p>
-            <Link to="/home/project" style={{ marginLeft: "40px" }}>Project</Link>
-            <Link to="/home/review/review-projects" style={{ marginLeft: "40px" }}>Review</Link>
-            <Link to="/" onClick={logOut} style={{ marginLeft: "20px", marginRight: "30px" }}>Log Out</Link>
+            <div >
+            <img rel="icon" style={{maxHeight: "50px"}} src={logo} alt="Logo"></img>
+            </div>
+            <div style={{float: "left"}}>
+                {/* <Link to="/home/profile/project" style={{ marginLeft: "40px" }}>Profile</Link> */}
+                <Link to="/home/project" style={{ marginLeft: "40px" }}>New Project</Link>
+            </div>
+
+            <div style={{float: "right"}}>
+                {/* <Link to="/home/review/review-projects" style={{ marginLeft: "40px" }}>Review</Link> */}
+                <Link to="/" onClick={logOut} style={{ marginLeft: "20px", marginRight: "30px" }}>Log Out</Link>
+            </div>
         </nav>
     );
 }

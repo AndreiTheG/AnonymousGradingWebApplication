@@ -7,6 +7,7 @@ import classes from './SubPageProject.css';
 import subPageClasses from '../SubPage/SubPage.css';
 import barClasses from '../Navbar2/Navbar2.css';
 import axios from 'axios';
+import Navbar from '../Navbar/Navbar';
 
 class ProjectPage extends Component {
     state = {
@@ -21,19 +22,20 @@ class ProjectPage extends Component {
     handleProjectCreate=(e)=>{
         e.preventDefault()
         const data={
-              projectName:this.state.projectName,
+              title:this.state.projectName,
               author:this.state.author,
-              fullDescription:this.state.fullDescription,
-              videoLink:this.state.videoLink
+              description:this.state.fullDescription,
+              videoLink:this.state.videoLink,
+              averageGrade:5
         }
-        if(!data.projectName || !data.author || !data.fullDescription || !data.videoLink){
+        if(!data.title || !data.author || !data.description || !data.videoLink){
             alert("The project needs to have a title, short description, full description and a project link");
             return;
         }
         axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
-        
+
           axios.post('http://localhost:5001/api/project',data).then(res=>{
-              this.setState({projectId:res.data.id})
+              this.setState({projectId:res.data.data.projectId})
           }).catch(err=>{
               console.log(err);
           })
@@ -155,6 +157,9 @@ class ProjectPage extends Component {
         // this.imagesDisplay = this.state.fileInput.current !== null ? <DisplayImages images={this.state.imagePreviewUrl} /> : "Select some images";
 
         return (
+            <div>
+            <Navbar />
+           
             <div className={subPageClasses.SubPage}>
                 <div className={barClasses.Navbar2}></div>
 
@@ -195,6 +200,7 @@ class ProjectPage extends Component {
                         {/* </Link> */}
                     </form>
                 </div>
+            </div>
             </div>
         );
     }

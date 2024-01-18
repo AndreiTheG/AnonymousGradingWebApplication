@@ -63,7 +63,7 @@ class App extends Component {
             <Route path="/home/project" element={<ProjectPage />} />
             <Route path="/home/profile/project" element={<ProfilePage />} />
             <Route path="/home/review/review-projects" element={<ReviewProjects />} />
-            <Route path="/start/full-page" element={<DisplayFullProject />} />
+            <Route path="/start/full-page/:id" element={<DisplayFullProject />} />
           </Routes>
         </BrowserRouter>
       </Auxiliary>
