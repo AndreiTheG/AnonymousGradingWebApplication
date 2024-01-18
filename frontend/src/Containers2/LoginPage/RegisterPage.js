@@ -101,10 +101,10 @@ class RegisterPage extends Component{
                       </div>
                       <div  className={classes.DrGri}>
                         <input type="radio" id="student" name="contact" value="student"  onChange={e=>this.role=e.target.value} />
-                        <label htmlFor="student">Student</label>
+                        <label style={{display: "inline"}}  htmlFor="student">Student</label>
 
                         <input type="radio" id="professor" name="contact" value="professor" onChange={e=>this.role=e.target.value} />
-                        <label htmlFor="professor">Professor</label>
+                        <label style={{display: "inline"}}  htmlFor="professor">Professor</label>
                        </div> 
                        <Link to="/start/main-page">
                         <button 
