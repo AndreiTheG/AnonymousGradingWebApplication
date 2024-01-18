@@ -3,7 +3,6 @@ import classes from './ReviewProjects.css'
 import buttonClasses from './ReviewProjects.css'
 import { Link } from 'react-router-dom';
 class ReviewProjects extends Component {
-   
     render() {
         const projects = []
         try {
