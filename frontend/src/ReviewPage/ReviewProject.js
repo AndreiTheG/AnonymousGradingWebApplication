@@ -33,9 +33,7 @@ class ReviewProjects extends Component {
                 {items}  
             </div>
         )
-
     }
-
 }
 
 export default ReviewProjects;
