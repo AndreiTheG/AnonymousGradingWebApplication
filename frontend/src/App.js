@@ -11,6 +11,8 @@ import axios from 'axios';
 import DisplayFullProject from './Components2/Multi/DisplayFullProject/DisplayFullProject';
 import Navbar from './Components2/MainPage/Navbar/Navbar'; // Adaugă importul pentru Navbar
 import ProfilePage from './Containers2/ProfilePage/ProfilePage';
+import Review from './Containers2/ReviewPage/Reviews';
+import ReviewTheProject from './Containers2/ReviewPage/ReviewTheProject';
 
 const SERVER = 'http://localhost:5001'
 
@@ -26,19 +28,19 @@ class App extends Component {
     console.log("[App.js] login state changed");
   };
 
-  componentDidMount = () => {
-    // axios.get('/api/data').then(res => {
-    //   this.setUser(res.data);
-    // }).catch(err => { console.log(err); });
-    axios.get(`${SERVER}/api/me`).then(res => {
-      this.setUser(res.data);
-    }).catch(err => { console.log(err); });
-    axios.get(`${SERVER}/api/projects`).then(res => {
-      this.setState({
-        projects: res.data
-      });
-    }).catch(err => { console.log(err); });
-  };
+  // componentDidMount = () => {
+  //   // axios.get('/api/data').then(res => {
+  //   //   this.setUser(res.data);
+  //   // }).catch(err => { console.log(err); });
+  //   axios.get(`${SERVER}/api/me`).then(res => {
+  //     this.setUser(res.data);
+  //   }).catch(err => { console.log(err); });
+  //   axios.get(`${SERVER}/api/projects`).then(res => {
+  //     this.setState({
+  //       projects: res.data
+  //     });
+  //   }).catch(err => { console.log(err); });
+  // };
 
   setUser = (user) => {
     this.setState({
@@ -58,6 +60,7 @@ class App extends Component {
             <Route path="/start/main-page" element={<Navbar />} />
             <Route path="/home/project" element={<ProjectPage />} />
             <Route path="/home/profile/project" element={<ProfilePage />} />
+            <Route path="/home/review/review-projects" element={<ReviewTheProject />} />
             <Route path="/start/full-page" element={<DisplayFullProject />} />
           </Routes>
         </BrowserRouter>
