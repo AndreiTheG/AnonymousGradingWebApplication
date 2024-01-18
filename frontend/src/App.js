@@ -14,6 +14,7 @@ import ProfilePage from './Containers2/ProfilePage/ProfilePage';
 // import MainPage from './Containers2/MainPage/MainPage';
 import Review from './Containers2/ReviewPage/Reviews';
 import ReviewProjects from './Containers2/ReviewPage/ReviewProjects'
+import ProjectList from './Components2/MainPage/ProjectList/ProjectList';
 
 const SERVER = 'http://localhost:5001'
 
@@ -61,6 +62,7 @@ class App extends Component {
             <Route path="/start/main-page" element={<Navbar />} />
             {/* <Route path="/start/main-page" element={<MainPage />} /> */}
             <Route path="/home/project" element={<ProjectPage />} />
+            <Route path="/home/project-list" element={<ProjectList />} />
             <Route path="/home/profile/project" element={<ProfilePage />} />
             <Route path="/home/review/review-projects" element={<ReviewProjects />} />
             <Route path="/start/full-page/:id" element={<DisplayFullProject />} />
