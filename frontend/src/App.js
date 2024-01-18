@@ -60,7 +60,7 @@ class App extends Component {
             <Route path="/start/main-page" element={<Navbar />} />
             <Route path="/home/project" element={<ProjectPage />} />
             <Route path="/home/profile/project" element={<ProfilePage />} />
-            {/* <Route path="/home/review/review-projects" element={<ReviewTheProject />} /> */}
+            <Route path="/home/review/review-projects" element={<ReviewTheProject />} />
             <Route path="/start/full-page" element={<DisplayFullProject />} />
           </Routes>
         </BrowserRouter>
