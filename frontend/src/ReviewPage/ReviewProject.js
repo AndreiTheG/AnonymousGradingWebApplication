@@ -32,8 +32,14 @@ class ReviewProjects extends Component {
                 {console.log(projects)}
                 {items}  
             </div>
+
+
+
+
         )
+
     }
+
 }
 
 export default ReviewProjects;

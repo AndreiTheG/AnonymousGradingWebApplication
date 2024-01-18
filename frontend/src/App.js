@@ -12,7 +12,7 @@ import DisplayFullProject from './Components2/Multi/DisplayFullProject/DisplayFu
 import Navbar from './Components2/MainPage/Navbar/Navbar'; // Adaugă importul pentru Navbar
 import ProfilePage from './Containers2/ProfilePage/ProfilePage';
 import Review from './Containers2/ReviewPage/Reviews';
-import ReviewProjects from './Containers2/ReviewPage/ReviewProjects';
+import ReviewTheProject from './Containers2/ReviewPage/ReviewTheProject';
 
 const SERVER = 'http://localhost:5001'
 
@@ -60,7 +60,7 @@ class App extends Component {
             <Route path="/start/main-page" element={<Navbar />} />
             <Route path="/home/project" element={<ProjectPage />} />
             <Route path="/home/profile/project" element={<ProfilePage />} />
-            <Route path="/home/review/review-projects" element={<ReviewProjects />} />
+            <Route path="/home/review/review-projects" element={<ReviewTheProject />} />
             <Route path="/start/full-page" element={<DisplayFullProject />} />
           </Routes>
         </BrowserRouter>
