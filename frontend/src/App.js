@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
 
 import Auxiliary from './Auxiliary/Auxiliary';
-import MainPage from './Containers2/MainPage/MainPage';
 import Background from './Containers2/LoginPage/Background';
 import LoginPage from './Containers2/LoginPage/LoginPage';
 import RegisterPage from './Containers2/LoginPage/RegisterPage';
@@ -11,7 +10,6 @@ import axios from 'axios';
 import DisplayFullProject from './Components2/Multi/DisplayFullProject/DisplayFullProject';
 import Navbar from './Components2/MainPage/Navbar/Navbar'; // Adaugă importul pentru Navbar
 import ProfilePage from './Containers2/ProfilePage/ProfilePage';
-// import MainPage from './Containers2/MainPage/MainPage';
 import Review from './Containers2/ReviewPage/Reviews';
 import ReviewProjects from './Containers2/ReviewPage/ReviewProjects'
 import ProjectList from './Components2/MainPage/ProjectList/ProjectList';
