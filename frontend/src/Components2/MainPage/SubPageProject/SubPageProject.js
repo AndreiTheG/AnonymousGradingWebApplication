@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Link, Navigate } from 'react-router-dom';
-
-// import DisplayImages from '../../Multi/DisplayImages/DisplayImages'
 import DisplayFullProject from '../../../Components2/Multi/DisplayFullProject/DisplayFullProject';
 import classes from './SubPageProject.css';
 import subPageClasses from '../SubPage/SubPage.css';
@@ -15,8 +13,6 @@ class ProjectPage extends Component {
         author: '',
         fullDescription: '',
         videoLink: '',
-        // gitHubLink: '',
-        // fileInput: React.createRef()
     };
 
     handleProjectCreate=(e)=>{
@@ -61,40 +57,17 @@ class ProjectPage extends Component {
         this.setState({ fullDescription: event.target.value });
     }
 
-    // handleImagesChange = (event) => {
-    //     event.preventDefault();
-
-    //     let reader = new FileReader();
-    //     let file = this.state.fileInput.current.files[0]
-
-    //     reader.onloadend = () => {
-    //         this.setState({
-    //             file: file,
-    //             imagePreviewUrl: reader.result
-    //         });
-    //     }
-
-    //     reader.readAsDataURL(file)
-    // }
-
     handleYouTubeLinkChange = (event) => {
         this.setState({ videoLink: event.target.value });
     }
-
-    // handleGitHubLinkChange = (event) => {
-    //     this.setState({ gitHubLink: event.target.value });
-    // }
 
     handleSubmit = (event) => {
         event.preventDefault();
         this.projectData = {
             video: this.state.videoLink,
-            // upload: this.state.gitHubLink,
             title: this.state.projectName,
             author: this.props.user.data.fullName,
-            // description: this.state.shortDescription,
             body: this.state.fullDescription,
-            // images: this.state.imagePreviewUrl
         }
 
         if(!this.projectData.title || !this.projectData.body || !this.projectData.title || !this.projectData.videoLink){
@@ -154,8 +127,6 @@ class ProjectPage extends Component {
             this.deleteDisplay = <button className={classes.DeleteButton} onClick={this.props.handleDelete}>DELETE PROJECT</button>
         }
 
-        // this.imagesDisplay = this.state.fileInput.current !== null ? <DisplayImages images={this.state.imagePreviewUrl} /> : "Select some images";
-
         return (
             <div>
             <Navbar />
@@ -180,24 +151,13 @@ class ProjectPage extends Component {
                             <label htmlFor="FullDescription">Enter the Full Description of Your Project</label>
                             <textarea id="FullDescription" type='text' maxLength='6000' value={this.state.fullDescription} onChange={this.handleFullDescriptionChange} style={{ height: '200px' }} />
                         </div>
-                        {/* <label>
-                            <p>Add a Descriptive Image</p>
-                            {this.imagesDisplay}
-                            <input type='file' accept="image/png, image/jpeg" ref={this.state.fileInput} onChange={this.handleImagesChange} />
-                        </label> */}
                         <div>
                             <label htmlFor="VideoLink">Link a YouTube With A Demo of the Project</label>
                             <input id="VideoLink" type='text' maxLength='50' value={this.state.youTubeLink} onChange={this.handleYouTubeLinkChange} />
                         </div>
-                        {/* <label>
-                            <p>Add the GitHub Repo Containing Your Project</p>
-                            <input type='text' maxLength='50' value={this.state.gitHubLink} onChange={this.handleGitHubLinkChange} />
-                        </label> */}
-                        {/* <Link to="/start/full-page"> */}
                         <div>
                             <button  onClick={this.handleProjectCreate} type='submit'>SUBMIT</button>
                         </div>
-                        {/* </Link> */}
                     </form>
                 </div>
             </div>
@@ -207,5 +167,3 @@ class ProjectPage extends Component {
 }
 
 export default ProjectPage;
-
-// export default withRouter(ProjectPage);
