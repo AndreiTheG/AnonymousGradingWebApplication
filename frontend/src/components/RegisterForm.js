@@ -1,128 +1,128 @@
-import React,{Component} from 'react';
-import { Link, Navigate } from 'react-router-dom';
-import classes from './RegisterForm.css';
-import axios from 'axios'
+// import React,{Component} from 'react';
+// import { Link, Navigate } from 'react-router-dom';
+// import classes from './RegisterForm.css';
+// import axios from 'axios'
 
-class RegisterForm extends Component{
-  state={}
-  handleRegister=(e)=>{
-  e.preventDefault()
-  const data={
-          fullname:this.fullName,
-          email:this.email,
-          password:this.password,
-          year:this.studyYear,
-          group:this.groupNr,
-          role:this.role
-      }
-      axios.post('http://localhost:3001/api/v1/auth/register',data).then(res=>{
-          this.setState({registered:true})
-          localStorage.setItem('token',res.data.token)
-      }).catch(err=>{
-          console.log(err);
-      })
-  }
+// class RegisterForm extends Component{
+//   state={}
+//   handleRegister=(e)=>{
+//   e.preventDefault()
+//   const data={
+//           fullname:this.fullName,
+//           email:this.email,
+//           password:this.password,
+//           year:this.studyYear,
+//           group:this.groupNr,
+//           role:this.role
+//       }
+//       axios.post('http://localhost:3001/api/v1/auth/register',data).then(res=>{
+//           this.setState({registered:true})
+//           localStorage.setItem('token',res.data.token)
+//       }).catch(err=>{
+//           console.log(err);
+//       })
+//   }
 
 
 
- render(){ 
-  if(this.state.registered){
-     return <Navigate to='/home'/>
-  }
+//  render(){ 
+//   if(this.state.registered){
+//      return <Navigate to='/home'/>
+//   }
 
-  return(
+//   return(
      
-      <div className={classes.Login}>
-      <div className={classes.All}>
-          <div id="Partea Dreapta" className={classes.Dreapta}>
-                      <p className={classes.Welcome}>Welcome Back!</p>
-                      <p className={classes.DescDreapta}>To keep connected with us please login with your personal info</p>
+//       <div className={classes.Login}>
+//       <div className={classes.All}>
+//           <div id="Partea Dreapta" className={classes.Dreapta}>
+//                       <p className={classes.Welcome}>Welcome Back!</p>
+//                       <p className={classes.DescDreapta}>To keep connected with us please login with your personal info</p>
                     
-                      <Link to="/">
-                          <button className={classes.ButonDreapta}>
-                              SIGN IN
-                          </button>
-                      </Link>
-                  </div>
+//                       <Link to="/">
+//                           <button className={classes.ButonDreapta}>
+//                               SIGN IN
+//                           </button>
+//                       </Link>
+//                   </div>
          
-         <div className={classes.Stanga}>
-                   <div id="Partea Stanga" className={classes.St}>
+//          <div className={classes.Stanga}>
+//                    <div id="Partea Stanga" className={classes.St}>
                     
-                          <br></br>
-                          <div className={classes.Cercuri}>
-                          <p>Create Account </p>
+//                           <br></br>
+//                           <div className={classes.Cercuri}>
+//                           <p>Create Account </p>
                             
-                      </div>
+//                       </div>
                      
                       
-                      <br></br>
-                      <p className={classes.para}>Use your email for registration:</p>
+//                       <br></br>
+//                       <p className={classes.para}>Use your email for registration:</p>
                       
-                      <div className={classes.DrGri}>
-                          <input type="text"
-                          className={classes.inputReg}
-                          placeholder="Name"
-                          onChange={e=>this.fullName=e.target.value}
-                          ></input>
-                      </div>
-                      <div className={classes.DrGri}>
-                        <input type="text"
-                        className={classes.inputReg}
-                        placeholder="Email"
-                        onChange={e=>this.email=e.target.value}
-                        ></input>
-                      </div>
-                      <div className={classes.DrGri}>
-                        <input type="password"
-                        className={classes.inputReg}
-                        placeholder="Password"
-                        onChange={e=>this.password=e.target.value}
-                        ></input>
-                      </div>
-                      <div className={classes.DrGri}>
-                        <input type="text"
-                        className={classes.inputReg}
-                        placeholder="Group Number"
-                        onChange={e=>this.groupNr=e.target.value}
-                        ></input>
-                      </div>
-                      <div className={classes.DrGri}>
-                        <input type="text"
-                        className={classes.inputReg}
-                        placeholder="Study Year"
-                        onChange={e=>this.studyYear=e.target.value}
-                        ></input>
-                      </div>
-                      <div  className={classes.DrGri}>
-                        <input type="radio" id="student" name="contact" value="student" />
-                        <label htmlFor="student">Student</label>
+//                       <div className={classes.DrGri}>
+//                           <input type="text"
+//                           className={classes.inputReg}
+//                           placeholder="Name"
+//                           onChange={e=>this.fullName=e.target.value}
+//                           ></input>
+//                       </div>
+//                       <div className={classes.DrGri}>
+//                         <input type="text"
+//                         className={classes.inputReg}
+//                         placeholder="Email"
+//                         onChange={e=>this.email=e.target.value}
+//                         ></input>
+//                       </div>
+//                       <div className={classes.DrGri}>
+//                         <input type="password"
+//                         className={classes.inputReg}
+//                         placeholder="Password"
+//                         onChange={e=>this.password=e.target.value}
+//                         ></input>
+//                       </div>
+//                       <div className={classes.DrGri}>
+//                         <input type="text"
+//                         className={classes.inputReg}
+//                         placeholder="Group Number"
+//                         onChange={e=>this.groupNr=e.target.value}
+//                         ></input>
+//                       </div>
+//                       <div className={classes.DrGri}>
+//                         <input type="text"
+//                         className={classes.inputReg}
+//                         placeholder="Study Year"
+//                         onChange={e=>this.studyYear=e.target.value}
+//                         ></input>
+//                       </div>
+//                       <div  className={classes.DrGri}>
+//                         <input type="radio" id="student" name="contact" value="student" />
+//                         <label htmlFor="student">Student</label>
 
-                        <input type="radio" id="professor" name="contact" value="professor" />
-                        <label htmlFor="professor">Professor</label>
-                       </div> 
+//                         <input type="radio" id="professor" name="contact" value="professor" />
+//                         <label htmlFor="professor">Professor</label>
+//                        </div> 
 
-    {/* <!--   <input type="radio" id="contactChoice3" name="contact" value="mail" />
-      <label for="contactChoice3">Mail</label> -->
-    </div> */}
-                      {/* <div className={classes.DrGri}>
-                        <input type="text"
-                        className={classes.inputReg}
-                        placeholder="Role"
-                        onChange={e=>this.role=e.target.value}
-                        ></input>
-                      </div> */}
-                      </div>
-                      <button 
-                      className={classes.ButonSignUp}
-                      onClick={this.handleRegister}>
-                          SIGN UP
-                   </button>
+//     {/* <!--   <input type="radio" id="contactChoice3" name="contact" value="mail" />
+//       <label for="contactChoice3">Mail</label> -->
+//     </div> */}
+//                       {/* <div className={classes.DrGri}>
+//                         <input type="text"
+//                         className={classes.inputReg}
+//                         placeholder="Role"
+//                         onChange={e=>this.role=e.target.value}
+//                         ></input>
+//                       </div> */}
+//                       </div>
+//                       <button 
+//                       className={classes.ButonSignUp}
+//                       onClick={this.handleRegister}>
+//                           SIGN UP
+//                    </button>
                   
 
-                  </div>
-          </div>
-          </div>
-  );
-  }
-};
-export default RegisterForm;
+//                   </div>
+//           </div>
+//           </div>
+//   );
+//   }
+// };
+// export default RegisterForm;
