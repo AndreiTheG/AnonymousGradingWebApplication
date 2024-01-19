@@ -30,20 +30,6 @@ class App extends Component {
     console.log("[App.js] login state changed");
   };
 
-  // componentDidMount = () => {
-  //   // axios.get('/api/data').then(res => {
-  //   //   this.setUser(res.data);
-  //   // }).catch(err => { console.log(err); });
-  //   axios.get(`${SERVER}/api/me`).then(res => {
-  //     this.setUser(res.data);
-  //   }).catch(err => { console.log(err); });
-  //   axios.get(`${SERVER}/api/projects`).then(res => {
-  //     this.setState({
-  //       projects: res.data
-  //     });
-  //   }).catch(err => { console.log(err); });
-  // };
-
   setUser = (user) => {
     this.setState({
       user: user,
