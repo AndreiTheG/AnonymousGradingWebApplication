@@ -1,4 +1,4 @@
-.ReviewButton {
+/* .ReviewButton {
     width: 200px;
     margin-left: 550px;
     margin-top: 250px;
@@ -63,7 +63,7 @@
     -moz-padding-end: 20px;
     -webkit-padding-start: 2px;
     -moz-padding-start: 2px;
-    background-color: #def2f1; /* Fallback color if gradients are not supported */
+    background-color: #def2f1; 
     background-position: center right;
     background-repeat: no-repeat;
     border: 1px solid #aaa;
@@ -142,4 +142,4 @@
       transform: translateY(-50%);
     }
   }
-  
+   */

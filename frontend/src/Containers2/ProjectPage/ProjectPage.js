@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import {withRouter} from 'react-router-dom';
-
 import classes from './ProjectPage.css';
 import Auxiliary from '../../Auxiliary/Auxiliary';
 import SubPage from '../../Components2/MainPage/SubPageProject/SubPageProject';
@@ -14,9 +12,6 @@ class ProjectPage extends Component {
             author: '',
             fullDescription: '',
             videoLink: ''
-            // ghLink: '',
-            // images: '',
-            // projectId: ''
         }
     }
     _isMounted = false;
@@ -39,33 +34,6 @@ class ProjectPage extends Component {
         });
     }
 
-    // componentDidMount = () => {
-    //     this._isMounted = true;
-
-    //     axios.get(`http://localhost:3001/api/v1/projects/user/${this.props.user.id}`).then(res => {
-    //         if (this._isMounted) {
-    //             const project = res.data.data[0];
-    //             console.log(project);
-    //             console.log(project.video);
-                
-    //             const projectId = (project && project._id) ? project._id : '';
-
-    //             this.setState({
-    //                 projectData: {
-    //                     projectName: (project.title === undefined) ? '' : project.title,
-    //                     shortDescription: project.description,
-    //                     fullDescription: project.body,
-    //                     ytLink: project.video,
-    //                     ghLink: project.upload,
-    //                     images: project.images,
-    //                     projectId: project._id
-    //                 }
-    //             });
-    //         }
-
-    //     }).catch(err => console.log(err));
-    // }
-
     componentWillUnmount = () => {
         this._isMounted = false;
     }
@@ -82,4 +50,3 @@ class ProjectPage extends Component {
 }
 
 export default ProjectPage;
-// export default withRouter(ProjectPage);
