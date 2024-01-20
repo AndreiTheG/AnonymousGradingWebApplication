@@ -1,15 +1,15 @@
-import React from 'react';
+// import React from 'react';
 
-import classes from './DisplayImages.css';
+// import classes from './DisplayImages.css';
 
 
 
-const displayImages = (props) => {
-    return(
-        <div className={classes.DisplayImages}>
-            <img src={props.images} alt="uploaded file" width='60%' height='auto'></img>
-        </div>
-    );
-}
+// const displayImages = (props) => {
+//     return(
+//         <div className={classes.DisplayImages}>
+//             <img src={props.images} alt="uploaded file" width='60%' height='auto'></img>
+//         </div>
+//     );
+// }
 
-export default displayImages;
+// export default displayImages;

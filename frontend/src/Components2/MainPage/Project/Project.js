@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
 
-class Project extends Component {
-    render() {
-        return(
-            <div></div>
-        );
-    }
-}
+// class Project extends Component {
+//     render() {
+//         return(
+//             <div></div>
+//         );
+//     }
+// }
