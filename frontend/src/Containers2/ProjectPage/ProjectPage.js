@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import classes from './ProjectPage.css';
 import Auxiliary from '../../Auxiliary/Auxiliary';
 import SubPage from '../../Components2/MainPage/SubPageProject/SubPageProject';
@@ -14,29 +14,29 @@ class ProjectPage extends Component {
             videoLink: ''
         }
     }
-    _isMounted = false;
+    // _isMounted = false;
 
-    handleDelete = () => {
-        axios.delete(`http://localhost:3001/api/v1/projects/${this.state.projectData.projectId}`).then(res=>{
-            console.log(res);
-            this.setState({
-                projectData: {
-                    projectName: '',
-                    shortDescription: '',
-                    fullDescription: '',
-                    ytLink: '',
-                    ghLink: '',
-                    images: '',
-                    projectId: ''
-                }
-            });
-            this.props.history.push('/home/profile/project');
-        });
-    }
+    // handleDelete = () => {
+    //     axios.delete(`http://localhost:3001/api/v1/projects/${this.state.projectData.projectId}`).then(res=>{
+    //         console.log(res);
+    //         this.setState({
+    //             projectData: {
+    //                 projectName: '',
+    //                 shortDescription: '',
+    //                 fullDescription: '',
+    //                 ytLink: '',
+    //                 ghLink: '',
+    //                 images: '',
+    //                 projectId: ''
+    //             }
+    //         });
+    //         this.props.history.push('/home/profile/project');
+    //     });
+    // }
 
-    componentWillUnmount = () => {
-        this._isMounted = false;
-    }
+    // componentWillUnmount = () => {
+    //     this._isMounted = false;
+    // }
 
     render() {
         return (
