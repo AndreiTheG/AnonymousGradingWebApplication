@@ -30,11 +30,6 @@ router.get('/me', protect , AuthentificationController.getMe); // DONE
 
 //router.put('/updatepassword', AuthentificationController.updatePassword);
 
-
-
-
-
-
 //project
 router.post('/project', protect, authorize('student', 'judge', 'admin'), projectController.createProject); // DONE
 router.get('/project/:id', protect, projectController.getProjectById);
