@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import {Navigate } from 'react-router-dom';
 import DisplayFullProject from '../../../Components2/Multi/DisplayFullProject/DisplayFullProject';
 import classes from './SubPageProject.css';
-import subPageClasses from '../SubPage/SubPage.css';
-import barClasses from '../Navbar2/Navbar2.css';
 import axios from 'axios';
 import Navbar from '../Navbar/Navbar';
 
@@ -131,11 +129,11 @@ class ProjectPage extends Component {
             <div>
             <Navbar />
            
-            <div className={subPageClasses.SubPage}>
-                <div className={barClasses.Navbar2}></div>
+            <div>
+                {/* <div></div>
 
                 {this.projectDisplay}
-                {this.deleteDisplay}
+                {this.deleteDisplay} */}
                 <div className={classes.SubPageProject}>
                     <h1>{this.title}</h1>
                     <form onSubmit={this.handleSubmit}>
