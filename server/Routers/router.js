@@ -24,7 +24,7 @@ router.get('/judgment/:id', judgmentController.getJudgmentsForProject);
 router.post('/register', AuthentificationController.register);// DONE
 router.post('/login', AuthentificationController.login);// DONE
 
-router.put('/updatedetails',protect, AuthentificationController.updateDetails);
+// router.put('/updatedetails',protect, AuthentificationController.updateDetails);
 
 router.get('/me', protect , AuthentificationController.getMe); // DONE
 
@@ -34,7 +34,7 @@ router.get('/me', protect , AuthentificationController.getMe); // DONE
 router.post('/project', protect, authorize('student', 'judge', 'admin'), projectController.createProject); // DONE
 router.get('/project/:id', protect, projectController.getProjectById);
 router.get('/projects', protect, authorize('judge', 'professor', 'admin', 'student'), projectController.getProjects);
-router.get('/project/user/:userId', protect, projectController.getProjectByUser);
+// router.get('/project/user/:userId', protect, projectController.getProjectByUser);
 router.put('/project/:id', protect, authorize('student', 'judge', 'admin'), projectController.updateProject);
 router.delete('/project/:id', protect, authorize('student', 'judge', 'admin'), projectController.deleteProject);
 
