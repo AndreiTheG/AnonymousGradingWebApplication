@@ -19,7 +19,6 @@ const navbar = (props) => {
             <img rel="icon" style={{maxHeight: "50px"}} src={logo} alt="Logo"></img>
             </div>
             <div style={{float: "left"}}>
-                {/* <Link to="/home/profile/project" style={{ marginLeft: "40px" }}>Profile</Link> */}
                 <Link to="/home/project-list" style={{ marginLeft: "40px" }}>Projects</Link>
             </div>
 
