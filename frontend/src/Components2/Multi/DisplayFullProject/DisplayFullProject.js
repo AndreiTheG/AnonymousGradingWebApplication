@@ -75,4 +75,4 @@ class DisplayFullProject extends Component {
     }
 }
 
-export default  withRouter(DisplayFullProject);
+export default withRouter(DisplayFullProject);
